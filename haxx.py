@@ -7,13 +7,6 @@ api_hash = 'b6bfa22e694d119dc13294062f63e6fd'
 # Initialising the Telegram Client
 client = TelegramClient("session", api_id, api_hash)
 
-# Constants for telegram side
-generate_count = 0
-id_fakemailbot = 'fakemailbot'
-new_mail_string = 'Your new fake mail id'
-fake_mail = ''
-fake_mail_domain = '@hi2.in'
-
 @client.on(events.NewMessage)
 async def response_handler(event):
     # new fake mail
@@ -23,6 +16,14 @@ async def response_handler(event):
         for word in words:
             if fake_mail_domain in word:
                 fake_mail = word
+
+
+# Constants for telegram side
+generate_count = 0
+id_fakemailbot = 'fakemailbot'
+new_mail_string = 'Your new fake mail id'
+fake_mail = ''
+fake_mail_domain = '@hi2.in'
 
 def generate_email():
     client.send_message(id_fakemailbot, "/generate")
