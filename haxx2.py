@@ -45,17 +45,28 @@ button.click()
 print("Values injected successfully.")
 time.sleep(1)
 print("Waiting for confirmation email...")
-while True:
+for i in range(0,10):
     elements_verif = driver_fakemail.find_elements_by_partial_link_text("Verify")
     print("Checking...")
+    if i == 19:
+        driver_fakemail.quit()
+        driver_is.quit()
+        quit()        
     if len(elements_verif) == 0:
         time.sleep(2)
     else:
         element_verif = elements_verif[0]
         break
 
-verification_mail = element_verif.get_attribute("href")
+try:
+    verification_mail = element_verif.get_attribute("href")
+except:
+    driver_fakemail.quit()
+    driver_is.quit()
+    quit()
 
 print("Opening verification email...")
 driver_is.get(verification_mail)
 print("!! Done !!")
+driver_fakemail.quit()
+driver_is.quit()
