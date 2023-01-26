@@ -22,7 +22,7 @@ print(fake_email)
 
 # Internshala
 print("Opening Internshala window...")
-internshala_link = 'https://internshala.com/the-grand-summer-internship-fair?utm_source=eap_copylink&utm_medium=3722461'
+internshala_link = 'https://isp.internshala.com/i/21143926'
 name_first = names.get_first_name()
 name_last = names.get_last_name()
 password = pwgenerator.generate()
